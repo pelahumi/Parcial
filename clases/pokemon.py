@@ -34,7 +34,7 @@ class Pokemon():
                 self.defensa = defensa
         else:
             raise ValueError("La defensa tiene que ser un número del 1 al 10")
-            
+
     #Destructor
     def __del__(self):
         print("Se ha eliminado el pokemon")
@@ -57,6 +57,12 @@ class Pokemon():
     def get_defensa(self):
         return self.defensa
 
+    #Comprobar si está vivo --> bool
+    def is_alive(self):
+        if self.salud > 0:
+            return True
+        else: 
+            return False
     
 
         
