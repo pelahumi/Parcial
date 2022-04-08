@@ -41,12 +41,16 @@ class Pokemon():
                 self.ataque = ataque
             else:
                 raise ValueError("El ataque tiene que ser un número del 1 al 10")
+        else:
+            raise TypeError("El ataque tiene que ser un número")
 
         if isinstance(defensa, int):
             if 1 <= defensa <= 10:
                 self.defensa = defensa
+            else:
+                raise ValueError("La defensa tiene que ser un número del 1 al 10")
         else:
-            raise ValueError("La defensa tiene que ser un número del 1 al 10")
+            raise TypeError("La defensa tiene que ser un número")
 
     #Destructor
     def __del__(self):
@@ -100,22 +104,28 @@ class Pokemon():
         if isinstance(salud_to_be_set, int):
             if 1 <= salud_to_be_set <=100:
                 self.salud = salud_to_be_set
+            else:
+                raise ValueError("La salud tiene que ser un número del 1 al 100")
         else:
-            raise ValueError("La salud tiene que ser un número del 1 al 100")
+            raise TypeError("La salud tiene que ser un número")
 
     def set_ataque(self,ataque_to_be_set):
-         if isinstance(ataque_to_be_set, int):
+        if isinstance(ataque_to_be_set, int):
             if 1 <= ataque_to_be_set <= 10:
                 self.ataque = ataque_to_be_set
             else:
                 raise ValueError("El ataque tiene que ser un número del 1 al 10")
+        else:
+            raise TypeError("El ataque tiene que ser un número")
 
     def set_defensa(self, defensa_to_be_set):
-         if isinstance(defensa_to_be_set, int):
+        if isinstance(defensa_to_be_set, int):
             if 1 <= defensa_to_be_set <= 10:
                 self.ataque = defensa_to_be_set
             else:
                 raise ValueError("La defensa tiene que ser un número del 1 al 10")
+        else:
+            raise TypeError("La defensa tiene que ser un número")
 
     #Comprobar si está vivo --> bool
     def is_alive(self):
@@ -128,6 +138,25 @@ class Pokemon():
     def attack(self, pokemon_to_attack):
         daño = self.ataque
         print(self.nombre," fue atacado por ",pokemon_to_attack.get_nombre()," e hizo un daño de: ",str(daño))
+
+    #Defender
+    def defense(self, puntos_de_daño):
+        if not isinstance(puntos_de_daño, int):
+            raise TypeError("Los puntos de ataque tienen que ser un int")
+
+        print(self.nombre," recibió ",puntos_de_daño," puntos de daño")
+
+        if puntos_de_daño > self.defensa:
+            self._health_points = (self.salud -
+                                   (puntos_de_daño - self.defensa))
+            pokemon_was_hit = True
+        else:
+            print("No recibió daño")
+            pokemon_was_hit = False
+
+        if self.salud < 1:
+            self.salud = 0
+            return pokemon_was_hit
 
 
     
