@@ -1,14 +1,18 @@
 class Pokemon():
     #Constructor
-    def __init__(self, id, nombre, ataques, salud, ataque, defensa):
+    def __init__(self, id, nombre, ataques, salud, defensa):
         self.id = id #int
         self.nombre = nombre #str
-        self.ataques = ataques #lista
+        self.ataques = ataques #diccionario
         self.salud = salud #int
-        self.ataque = ataque #int
         self.defensa = defensa #int
     
-    #Getters y setters
-    
+ 
+    #Destructor
+    def __del__(self):
+        print("Se ha eliminado el pokemon")
+
+
+
 
 
