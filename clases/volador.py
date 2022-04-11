@@ -12,4 +12,20 @@ class PokemonVolador(Pokemon):
         print(self.nombre," recibió ",str(daño)," puntos de daño")
 
         probabilidad_fallo = random.randrange(0, 2)
+
+        if probabilidad_fallo == 0:
+            if daño > self.defensa:
+                self.salud = (self.salud - (daño - self.defensa))
+                pokemon_golpeado = True
+            else:
+                print("No recibió ningún daño")
+                pokemon_golpeado = False
         
+        else:
+            print("No recibió ningún daño")
+            pokemon_golpeado = False
+
+        if self.salud < 1:
+            self.salud = 0
+            
+        return pokemon_golpeado

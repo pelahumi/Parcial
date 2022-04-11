@@ -150,15 +150,15 @@ class Pokemon():
         if daño > self.defensa:
             self._health_points = (self.salud -
                                    (daño - self.defensa))
-            pokemon_was_hit = True
+            pokemon_golpeado = True
         else:
             print("No recibió daño")
-            pokemon_was_hit = False
+            pokemon_golpeado = False
 
         if self.salud < 1:
             self.salud = 0
 
-        return pokemon_was_hit
+        return pokemon_golpeado
 
 
 
