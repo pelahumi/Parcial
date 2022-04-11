@@ -12,5 +12,14 @@ class PokemonTierra(Pokemon):
         else:
             raise TypeError("La defensa tiene que ser un número")
 
+    def set_defensa(self, defensa_to_be_set):
+        if isinstance(defensa_to_be_set, int):
+            if 11<= defensa_to_be_set <=20:
+                self.defensa =defensa_to_be_set
+            else:
+                raise ValueError("La defensa tiene que estar entre 11 y 20")
+        else:
+            raise TypeError("La defensa tiene que ser un número")
+        
 
         

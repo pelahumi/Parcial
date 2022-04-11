@@ -55,6 +55,7 @@ class Pokemon():
     #Destructor
     def destructor(self):
         print("Se ha transferido el pokemon")
+        Pokemon.pokedex.remove(self.id)
 
     #Getters y setters
     def get_id(self):
@@ -136,17 +137,19 @@ class Pokemon():
     def attack(self, pokemon_to_attack):
         daño = self.ataque
         print(self.nombre," fue atacado por ",pokemon_to_attack.get_nombre()," e hizo un daño de: ",str(daño))
+        pokemon_golpeado = pokemon_to_attack.defense(daño)
+        return pokemon_golpeado
 
     #Defender
-    def defense(self, puntos_de_daño):
-        if not isinstance(puntos_de_daño, int):
+    def defense(self, daño):
+        if not isinstance(daño, int):
             raise TypeError("Los puntos de ataque tienen que ser un int")
 
-        print(self.nombre," recibió ",puntos_de_daño," puntos de daño")
+        print(self.nombre," recibió ",daño," puntos de daño")
 
-        if puntos_de_daño > self.defensa:
+        if daño > self.defensa:
             self._health_points = (self.salud -
-                                   (puntos_de_daño - self.defensa))
+                                   (daño - self.defensa))
             pokemon_was_hit = True
         else:
             print("No recibió daño")
@@ -154,13 +157,10 @@ class Pokemon():
 
         if self.salud < 1:
             self.salud = 0
-            return pokemon_was_hit
 
-print("==========TEST 1===========")
-pokemon1= Pokemon(12, "pikavhu", "electrico", ["rayo", "trueno"], 100, 10, 10)
-pokemon2= Pokemon(14, "charmander", "fuego", ["lanzallamas", "ascuas"], 100, 10, 10)
-print(Pokemon.pokedex)
-print(pokemon1.is_alive())
+        return pokemon_was_hit
+
+
 
 
 
