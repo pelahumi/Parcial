@@ -53,10 +53,8 @@ class Pokemon():
             raise TypeError("La defensa tiene que ser un número")
 
     #Destructor
-    def __del__(self):
-        print("Se ha eliminado el pokemon")
-    
-    
+    def destructor(self):
+        print("Se ha transferido el pokemon")
 
     #Getters y setters
     def get_id(self):
@@ -157,6 +155,15 @@ class Pokemon():
         if self.salud < 1:
             self.salud = 0
             return pokemon_was_hit
+
+print("==========TEST 1===========")
+pokemon1= Pokemon(12, "pikavhu", "electrico", ["rayo", "trueno"], 100, 10, 10)
+pokemon2= Pokemon(14, "charmander", "fuego", ["lanzallamas", "ascuas"], 100, 10, 10)
+print(Pokemon.pokedex)
+print(pokemon1.is_alive())
+
+
+
 
 
     
