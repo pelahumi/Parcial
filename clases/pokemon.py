@@ -1,3 +1,4 @@
+from typing import Type
 from clases.ataques import *
 
 class Pokemon():
@@ -5,11 +6,11 @@ class Pokemon():
     pokedex = []
 
     #Constructor
-    def __init__(self, id, nombre, tipo, tipo_ataque, salud, ataque, defensa):
+    def __init__(self, id, nombre,tipo, tipo_ataque, salud, ataque, defensa):
         self.id = id #int
         self.nombre = nombre #str
-        self.tipo = tipo #str
-        self.tipo_ataque = tipo_ataque 
+        self.tipo = tipo
+        self.tipo_ataque = tipo_ataque #str
         self.salud = salud #int
         self.ataque = ataque #int
         self.defensa = defensa #int
@@ -28,6 +29,11 @@ class Pokemon():
             self.nombre = nombre
         else: 
             raise TypeError("El nombre tiene que ser un str")
+        
+        if isinstance(tipo, str):
+            self.tipo = tipo
+        else:
+            raise TypeError("El tipo tiene que ser un str")
         
         if isinstance(tipo_ataque, str):
             self.tipo_ataque = tipo_ataque
@@ -68,8 +74,11 @@ class Pokemon():
     def get_nombre(self):
         return self.nombre
     
-    def get_ataques(self):
-        return self.ataques
+    def get_tipo(self):
+        return self.tipo
+    
+    def get_tipo_ataque (self):
+        return self.tipo_ataque 
     
     def get_salud(self):
         return self.salud
@@ -97,11 +106,11 @@ class Pokemon():
         else: 
             raise TypeError("El tipo tiene que ser un str")
     
-    def set_ataques(self, ataques_to_be_set):
+    def set_tipo_ataque (self, ataques_to_be_set):
         if isinstance(ataques_to_be_set, list):
-            self.ataques = ataques_to_be_set
+            self.tipo_ataque  = ataques_to_be_set
         else:
-            raise TypeError("Los ataques tienen que ser una lista")
+            raise TypeError("Los ataques tienen que ser un str")
 
     def set_salud(self, salud_to_be_set):
         if isinstance(salud_to_be_set, int):
