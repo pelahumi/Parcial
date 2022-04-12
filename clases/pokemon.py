@@ -1,13 +1,15 @@
+from clases.ataques import *
+
 class Pokemon():
 
     pokedex = []
 
     #Constructor
-    def __init__(self, id, nombre, tipo,  ataques, salud, ataque, defensa):
+    def __init__(self, id, nombre, tipo, tipo_ataque, salud, ataque, defensa):
         self.id = id #int
         self.nombre = nombre #str
         self.tipo = tipo #str
-        self.ataques = ataques 
+        self.tipo_ataque = tipo_ataque 
         self.salud = salud #int
         self.ataque = ataque #int
         self.defensa = defensa #int
@@ -27,10 +29,10 @@ class Pokemon():
         else: 
             raise TypeError("El nombre tiene que ser un str")
         
-        if isinstance(tipo, str):
-            self.tipo = tipo
+        if isinstance(tipo_ataque, str):
+            self.tipo_ataque = tipo_ataque
         else: 
-            raise TypeError("El tipo tiene que ser un str")
+            raise TypeError("El tipo de ataque tiene que ser un str")
 
         if isinstance(salud, int):
             if 1 <= salud <=100:
@@ -128,6 +130,14 @@ class Pokemon():
         else:
             raise TypeError("La defensa tiene que ser un número")
 
+    #Descripción del pokemon
+    def __str__(self):
+        descripcion = ("El pokemon " + str(self.nombre) + "con id " + str(self.id) + 
+                        ", sus ataques son: " + str(self.tipo_ataque.nombre) + 
+                        "y " + str(self.salud)  + "puntos de vida")
+        
+        return descripcion
+ 
     #Comprobar si está vivo --> bool
     def is_alive(self):
         if self.salud > 0:
