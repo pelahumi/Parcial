@@ -19,6 +19,8 @@ class Pokemon():
                 Pokemon.pokedex.append(self.id)
             else:
                 raise ValueError("El pokemon elegido ya está registrado en la pokedex")
+        else:
+            raise TypeError("El id del pokemon tiene que ser un número")
 
         if isinstance(nombre, str):
             self.nombre = nombre
