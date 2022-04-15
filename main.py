@@ -26,5 +26,10 @@ def get_data_from_user(name_file):
             int(temp_pokemon_csv[5]))
 
             equipo_pokemon.append(entrenador)
-            
+    
+    except SyntaxError:
+        print("El pokemon del entrenador no fue introducido correctamente. Vuelve a intentarlo.")
+
+    return equipo_pokemon
+
 
