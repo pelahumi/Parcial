@@ -76,5 +76,16 @@ def coach_is_undefeated(list_of_pokemon):
             defeated = False
     
     return not defeated
+    
+def main():
+    #Inicio del juego
+    print("Bienvenido a Pokemon.")
+    print("Empecemos con la configuración de cada usuario")
+
+    #Configuracion usuario 1
+    print("Para el usuario 1:")
+    game_user_1 = get_data_from_user("coach_1_pokemons.csv")
+
+    
 
 
