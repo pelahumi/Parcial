@@ -71,4 +71,10 @@ def coach_is_undefeated(list_of_pokemon):
 
     defeated = True
 
+    for temp_pokemon in list_of_pokemon:
+        if temp_pokemon.is_alive():
+            defeated = False
+    
+    return not defeated
+
 
