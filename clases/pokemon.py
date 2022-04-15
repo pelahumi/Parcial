@@ -6,7 +6,7 @@ class Pokemon():
     pokedex = []
 
     #Constructor
-    def __init__(self, id, nombre,tipo, tipo_ataque, salud, ataque, defensa):
+    def __init__(self, id, nombre, tipo, tipo_ataque, salud, ataque, defensa):
         self.id = id #int
         self.nombre = nombre #str
         self.tipo = tipo
