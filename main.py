@@ -49,4 +49,18 @@ def get_pokemon_in_a_list_of_pokemmons(coach_to_ask, list_of_pokemon):
 
             string_introduced = input(":~>")
 
+            try:
+                int_introduced = int(string_introduced)
+            
+            except ValueError:
+                print("Introduce un id que esté en la lista")
+
+            for temp_pokemon in list_of_pokemon:
+                if int_introduced == temp_pokemon.get_id():
+                    return temp_pokemon
+            print("Introduce un número que esté en la lista")
+
+    else:
+        raise TypeError("list_pokemon tiene que ser una lista")
+
 
