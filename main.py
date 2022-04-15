@@ -140,6 +140,22 @@ def main():
 
     else:
         print("El combate termino en empate")
+    
+    print("---------------------------------------------------")
+    print("Estadisticas")
+    print("---------------------------------------------------")
+
+    print("Entrenador 1:")
+    for temp_pokemon in temp_list_pokemon_from_coach_1:
+        print(temp_pokemon)
+
+    print("Entrenador 2:")
+    for temp_pokemon in temp_list_pokemon_from_coach_2:
+        print(temp_pokemon)    
+
+
+if __name__ == "__main__":
+    main()   
 
 
 
