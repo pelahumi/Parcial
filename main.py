@@ -1,5 +1,6 @@
 import csv
 import copy
+from re import T
 
 from clases.ataques import *
 from clases.pokemon import *
@@ -31,5 +32,21 @@ def get_data_from_user(name_file):
         print("El pokemon del entrenador no fue introducido correctamente. Vuelve a intentarlo.")
 
     return equipo_pokemon
+
+def get_pokemon_in_a_list_of_pokemmons(coach_to_ask, list_of_pokemon):
+    if isinstance(list_of_pokemon, list):
+        for temp_pokemon in list_of_pokemon:
+            if not isinstance(temp_pokemon, Pokemon):
+                raise TypeError("Los pokemon tienen que ser de la clase Pokemon")
+        
+        print("Entrenador " + str(coach_to_ask) + " introduce el id del pokemon: " + "\n")
+
+        while True:
+            print("Lista de pokemons:" + "\n")
+
+            for i in list_of_pokemon:
+                print(i)
+
+            string_introduced = input(":~>")
 
 
