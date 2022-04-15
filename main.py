@@ -86,6 +86,32 @@ def main():
     print("Para el usuario 1:")
     game_user_1 = get_data_from_user("coach_1_pokemons.csv")
 
+    #Configuracion usuario 2
+    print("Para el usuario 2:")
+    game_user_2 = get_data_from_user("coach_2_pokemons.csv")
+
+    print("---------------------------------------------------")
+    print("Empieza el juego...")
+    print("---------------------------------------------------")
     
+    #Copia del equipo pokemon
+    temp_list_pokemon_from_coach_1 = game_user_1
+    list_pokemons_alive_coach_1 = copy.copy(temp_list_pokemon_from_coach_1)
+
+    temp_list_pokemon_from_coach_2 = game_user_2
+    list_pokemons_alive_coach_2 = copy.copy(temp_list_pokemon_from_coach_2)
+
+    #Primeros pokemon
+    print("Entrenador 1 elige tu primer pokemon")
+    temp_list_pokemon_from_coach_1 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 1 introduce el id del pokemon: ", list_pokemons_alive_coach_1)
+
+    print("Entrenador 2 elige tu primer pokemon")
+    temp_list_pokemon_from_coach_2 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 2 introduce el id del pokemon: ", list_pokemons_alive_coach_2)
+
+    while
+    
+
+
+
 
 
