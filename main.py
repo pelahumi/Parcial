@@ -11,4 +11,20 @@ def get_data_from_user(name_file):
         raise TypeError("El nombre del archivo no es un string")
 
     name_file_s = name_file
-    
+
+    try:
+        with open(name_file_s, newline='') as csv_file:
+            reader =csv.reader(csv_file)
+            data_from_file = list(reader)
+        
+        for temp_pokemon_csv in data_from_file:
+            entrenador = Pokemon(int(temp_pokemon_csv[0]),
+            temp_pokemon_csv[1], 
+            TipoAtaque.from_str(temp_pokemon_csv[2]),
+            int(temp_pokemon_csv[3]),
+            int(temp_pokemon_csv[4]),
+            int(temp_pokemon_csv[5]))
+
+            equipo_pokemon.append(entrenador)
+            
+
