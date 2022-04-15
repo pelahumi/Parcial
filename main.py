@@ -63,4 +63,12 @@ def get_pokemon_in_a_list_of_pokemmons(coach_to_ask, list_of_pokemon):
     else:
         raise TypeError("list_pokemon tiene que ser una lista")
 
+def coach_is_undefeated(list_of_pokemon):
+    if isinstance(list_of_pokemon, list):
+        for temp_pokemon in list_of_pokemon:
+            if not isinstance(temp_pokemon, Pokemon):
+                raise TypeError("Los pokemon tienen que ser del tipo Pokemon")
+
+    defeated = True
+
 
