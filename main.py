@@ -103,13 +103,43 @@ def main():
 
     #Primeros pokemon
     print("Entrenador 1 elige tu primer pokemon")
-    temp_list_pokemon_from_coach_1 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 1 introduce el id del pokemon: ", list_pokemons_alive_coach_1)
+    temp_pokemon_from_coach_1 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 1 introduce el id del pokemon: ", list_pokemons_alive_coach_1)
 
     print("Entrenador 2 elige tu primer pokemon")
-    temp_list_pokemon_from_coach_2 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 2 introduce el id del pokemon: ", list_pokemons_alive_coach_2)
+    temp_pokemon_from_coach_2 = get_pokemon_in_a_list_of_pokemmons("Por favor entrenador 2 introduce el id del pokemon: ", list_pokemons_alive_coach_2)
 
-    while
-    
+    while(coach_is_undefeated(temp_list_pokemon_from_coach_1) and coach_is_undefeated(temp_list_pokemon_from_coach_2)):
+
+        if not temp_pokemon_from_coach_1.is_alive():
+            #Selecciona un nuevo pokemon
+            print("Entrenador 1 tu pokemon: " + str(temp_pokemon_from_coach_1) + " fue derrotado. Selecciona tu siguiente pokemon")
+            list_pokemons_alive_coach_1.remove(temp_pokemon_from_coach_1)
+            temp_pokemon_from_coach_1 = get_pokemon_in_a_list_of_pokemmons("Introduce el id del nuevo pokemon", list_pokemons_alive_coach_1)
+
+        if not temp_pokemon_from_coach_2.is_alive():
+            #Selecciona un nuevo pokemon
+            print("Entrenador 2 tu pokemon: " + str(temp_pokemon_from_coach_2) + " fue derrotado. Selecciona tu siguiente pokemon")
+            list_pokemons_alive_coach_2.remove(temp_pokemon_from_coach_2)
+            temp_pokemon_from_coach_2 = get_pokemon_in_a_list_of_pokemmons("Introduce el id del nuevo pokemon", list_pokemons_alive_coach_2)
+
+        print("Pokemon del entrenador 1 ataca")
+        temp_pokemon_from_coach_1.attack(temp_pokemon_from_coach_2)
+
+        print("Pokemon del entrenador 2 ataca")
+        temp_pokemon_from_coach_2.attack(temp_pokemon_from_coach_1)
+
+    print("---------------------------------------------------")
+    print("El juego ha terminado...")
+    print("---------------------------------------------------")
+
+    if (coach_is_undefeated(temp_list_pokemon_from_coach_1) and not coach_is_undefeated(temp_list_pokemon_from_coach_2)):
+        print("El ganador es el entrenador 1")
+
+    elif (not coach_is_undefeated(temp_list_pokemon_from_coach_1) and coach_is_undefeated(temp_list_pokemon_from_coach_2)):
+        print("El ganador es el entrenador 2")
+
+    else:
+        print("El combate termino en empate")
 
 
 
